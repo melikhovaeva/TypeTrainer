@@ -1,0 +1,50 @@
+<UserControl x:Class="TypeMaster.Views.GameView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="{StaticResource BackgroundBrush}"
+             Margin="40">
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+
+    <TextBlock Grid.Row="0"
+               Text="{Binding DisplayText}"
+               TextWrapping="Wrap"
+               FontSize="{Binding FontSize}"
+               Foreground="{StaticResource SecondaryText}"
+               HorizontalAlignment="Center"
+               Margin="0,0,0,10"/>
+
+    <RichTextBox Grid.Row="1"
+                 x:Name="InputBox"
+                 FontSize="{Binding FontSize}"
+                 VerticalScrollBarVisibility="Hidden"
+                 AcceptsReturn="False"
+                 BorderThickness="0,0,0,1"
+                 BorderBrush="{StaticResource ControlBorderBrush}"
+                 Background="Transparent"
+                 TextChanged="InputBox_TextChanged"
+                 Margin="0,0,0,10"/>
+
+    <StackPanel Grid.Row="2" 
+                Orientation="Horizontal" 
+                HorizontalAlignment="Center" 
+                Margin="0,0,0,10">
+      <TextBlock Text="WPM:" FontWeight="Bold"/>
+      <TextBlock Text="{Binding Wpm}" Margin="5,0"/>
+      <TextBlock Text="Ошибки:" FontWeight="Bold" Margin="20,0,0,0"/>
+      <TextBlock Text="{Binding Errors}" Margin="5,0"/>
+    </StackPanel>
+
+    <Button Grid.Row="3"
+            Content="Завершить"
+            Command="{Binding FinishCommand}"
+            HorizontalAlignment="Center"
+            Width="120"
+            Margin="0,10,0,0"/>
+  </Grid>
+</UserControl>

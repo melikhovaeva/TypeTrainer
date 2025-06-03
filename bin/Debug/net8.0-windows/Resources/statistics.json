@@ -1,0 +1,32 @@
+[
+  {
+    "Date": "2025-05-19T18:49:40.2884677+03:00",
+    "WordsPerMinute": 0.0,
+    "Errors": 0,
+    "DictionaryName": "Default"
+  },
+  {
+    "Date": "2025-05-19T19:08:21.519169+03:00",
+    "WordsPerMinute": 2.5,
+    "Errors": 35,
+    "DictionaryName": "Default"
+  },
+  {
+    "Date": "2025-05-19T20:04:53.761293+03:00",
+    "WordsPerMinute": 38.6,
+    "Errors": 18,
+    "DictionaryName": "Default"
+  },
+  {
+    "Date": "2025-05-19T20:22:41.4688543+03:00",
+    "WordsPerMinute": 0.0,
+    "Errors": 0,
+    "DictionaryName": "Default"
+  },
+  {
+    "Date": "2025-05-28T18:53:50.4368009+03:00",
+    "WordsPerMinute": 39.8,
+    "Errors": 0,
+    "DictionaryName": "Default"
+  }
+]

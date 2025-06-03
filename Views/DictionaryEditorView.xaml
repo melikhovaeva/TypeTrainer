@@ -1,0 +1,58 @@
+<UserControl x:Class="TypeMaster.Views.DictionaryEditorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Margin="20">
+  <Grid>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*" />
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+
+    <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center">
+      <TextBlock Text="Словари:" 
+                 FontSize="16" 
+                 FontWeight="Bold" 
+                 Margin="0,0,10,0"/>
+      <ComboBox ItemsSource="{Binding Dictionaries}"
+                SelectedItem="{Binding SelectedDictionary}"
+                DisplayMemberPath="Name"
+                HorizontalAlignment="Stretch"
+                MinWidth="200"/>
+    </StackPanel>
+
+    <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="0,10,0,10">
+      <TextBlock Text="Новое слово:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+      <TextBox Width="200"
+               Text="{Binding NewWord, UpdateSourceTrigger=PropertyChanged}"
+               Style="{x:Null}"
+               Margin="0,0,5,0"/>
+      <Button Content="Добавить"
+              Command="{Binding AddWordCommand}"
+              Width="80"/>
+    </StackPanel>
+
+    <ListBox Grid.Row="2"
+             ItemsSource="{Binding SelectedDictionary.Words}"
+             SelectedItem="{Binding SelectedWord}"
+             Margin="0,0,0,10"/>
+
+    <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right">
+      <Button Content="Удалить"
+              Command="{Binding RemoveWordCommand}"
+              Width="80"
+              Margin="0,0,5,0"/>
+      <Button Content="Сохранить"
+              Command="{Binding SaveCommand}"
+              Width="80"
+              Margin="0,0,5,0"/>
+      <Button Content="Назад"
+              Command="{Binding BackCommand}"
+              Width="80"/>
+    </StackPanel>
+  </Grid>
+</UserControl>

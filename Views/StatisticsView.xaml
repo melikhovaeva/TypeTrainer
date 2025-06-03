@@ -1,0 +1,38 @@
+<UserControl x:Class="TypeMaster.Views.StatisticsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="{StaticResource BackgroundBrush}"
+             Margin="20">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0"
+                   Text="Статистика"
+                   FontSize="18"
+                   FontWeight="Bold"
+                   HorizontalAlignment="Left"/>
+
+        <DataGrid Grid.Row="1"
+                  ItemsSource="{Binding Statistics}"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  IsReadOnly="True"
+                  Margin="0,10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Дата" Binding="{Binding Date, StringFormat=dd.MM.yyyy HH:mm}"/>
+                <DataGridTextColumn Header="WPM" Binding="{Binding WordsPerMinute}"/>
+                <DataGridTextColumn Header="Ошибки" Binding="{Binding Errors}"/>
+                <DataGridTextColumn Header="Словарь" Binding="{Binding DictionaryName}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Экспорт в CSV" Command="{Binding ExportCommand}" Margin="0,0,10,0"/>
+            <Button Content="Назад"         Command="{Binding BackCommand}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
